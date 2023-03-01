@@ -1,18 +1,12 @@
 import { StyleSheet } from 'react-native';
+import tailwind from 'twrnc';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
 
 export default function MyLinksScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>My TipLinks</Text>
-      <View
-        style={styles.separator}
-        lightColor='#eee'
-        darkColor='rgba(255,255,255,0.1)'
-      />
-      <EditScreenInfo path='app/(tabs)/my-links.tsx' />
+    <View style={tailwind`flex flex-col justify-start items-center p-12`}>
+      <Text style={styles.title}>soonTM</Text>
     </View>
   );
 }

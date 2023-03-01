@@ -1,0 +1,16 @@
+{
+  "name": "TipLinkMe",
+  "version": "0.0.1",
+  "description": "TipLinkMe",
+  "website": "https://tiplink.me",
+  "kind": "app",
+  "icon": {
+    "md": "./assets/images/tiplink_icon.png"
+  },
+  "screenshots": ["./assets/images/qr-logo.svg"],
+  "entrypoints": {
+    "default": {
+      "web": "./dist/index.html"
+    }
+  }
+}

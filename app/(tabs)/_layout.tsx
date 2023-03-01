@@ -10,15 +10,9 @@ import Colors from '../../constants/Colors';
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
-  size?: number;
+  size: number;
 }) {
-  return (
-    <FontAwesome
-      size={props.size ?? 28}
-      // style={{ marginBottom: -3 }}
-      {...props}
-    />
-  );
+  return <FontAwesome {...props} />;
 }
 
 export default function TabLayout() {
@@ -27,28 +21,35 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].tabIconDefault,
+        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tabIconSelected,
       }}
     >
       <Tabs.Screen
         name='index'
         options={{
-          title: '',
+          title: 'TipLink',
+          headerTitleAlign: 'center',
+          tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
             <Image
               source={require('../../assets/images/tiplink_icon.png')}
-              style={{ height: size, width: size, tintColor: color }}
+              style={{
+                height: size,
+                width: size,
+                tintColor: color,
+              }}
             />
           ),
-          headerRight: () => (
+          headerLeft: () => (
             <Link href='/settings' asChild>
               <Pressable>
                 {({ pressed }) => (
                   <FontAwesome
                     name='cogs'
                     size={24}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                    color={Colors[colorScheme ?? 'light'].tabIconSelected}
+                    style={{ marginLeft: 15, opacity: pressed ? 0.5 : 1 }}
                   />
                 )}
               </Pressable>
@@ -59,7 +60,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name='my-links'
         options={{
-          title: '',
+          title: 'My Links',
+          headerTitleAlign: 'center',
+          tabBarLabel: '',
           tabBarIcon: ({ color, size }) => (
             <TabBarIcon name='list-ul' color={color} size={size} />
           ),
