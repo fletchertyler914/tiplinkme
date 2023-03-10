@@ -15,10 +15,14 @@ export default function CreateLinkScreen() {
 
   // Create A New TipLink
   const handleOnClick = async () => {
+    // try {
     const tiplink = await TipLink.create();
     console.log('Create A New TipLink', tiplink);
-    setTipLink(tiplink.url.toString());
-    setTipLinkPubKey(tiplink.keypair.publicKey.toBase58());
+    // setTipLink(tiplink.url.toString());
+    // setTipLinkPubKey(tiplink.keypair.publicKey.toBase58());
+    // } catch (error) {
+    //   console.log('Error creating tiplink', error);
+    // }
   };
 
   return (
